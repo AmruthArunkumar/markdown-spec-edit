@@ -1,27 +1,32 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import "./App.css";
 
+import { Editor } from "./components/editor";
+import { LeftPane } from "./components/leftPane";
+import { RightPane } from "./components/rightPane";
+
 function App() {
-    const [count, setCount] = useState(0);
+    let [line, setLine] = useState(1);
+    let [col, setCol] = useState(1);
 
     return (
         <>
-            <section id="center">
-                <div className="hero">
-                    <img src={heroImg} className="base" width="170" height="179" alt="" />
-                    <img src={reactLogo} className="framework" alt="React logo" />
-                    <img src={viteLogo} className="vite" alt="Vite logo" />
+            <div id="app">
+                <div id="main">
+                    <section id="left">
+                        <LeftPane />
+                    </section>
+                    <section id="editor">
+                        <Editor setLine={setLine} setCol={setCol} />
+                    </section>
+                    <section id="right">
+                        <RightPane />
+                    </section>
                 </div>
-                <div>
-                    <h1>Get started</h1>
+                <div id="bottomBar">
+                    Ln {line}, Col {col}
                 </div>
-                <button className="counter" onClick={() => setCount((count) => count + 1)}>
-                    Count is {count}
-                </button>
-            </section>
+            </div>
         </>
     );
 }

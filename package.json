@@ -15,9 +15,17 @@
         "make": "electron-forge make"
     },
     "dependencies": {
+        "@codemirror/commands": "^6.10.3",
+        "@codemirror/lang-markdown": "^6.5.0",
+        "@codemirror/state": "^6.6.0",
+        "@codemirror/view": "^6.40.0",
+        "@lezer/highlight": "^1.2.3",
+        "codemirror": "^6.0.2",
         "electron-squirrel-startup": "^1.0.1",
         "react": "^19.2.4",
-        "react-dom": "^19.2.4"
+        "react-dom": "^19.2.4",
+        "remark-parse": "^11.0.0",
+        "unified": "^11.0.5"
     },
     "devDependencies": {
         "@electron-forge/cli": "^7.11.1",
@@ -45,6 +53,18 @@
     "config": {
         "forge": {
             "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "platforms": [
+                        "win32"
+                    ],
+                    "config": {
+                        "name": "markdown-spec-edit",
+                        "authors": "Amruth Arunkumar",
+                        "description": "A markdown editor for writing specifications",
+                        "exe": "markdown-spec-edit.exe"
+                    }
+                },
                 {
                     "name": "@electron-forge/maker-zip",
                     "platforms": [

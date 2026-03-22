@@ -22,6 +22,7 @@ npm run electron
 
 ```bash
 npm install @electron-forge/cli --save-dev
+npm install @codemirror/state @codemirror/view @codemirror/commands
 ```
 
 # Set Up Electron Forge
